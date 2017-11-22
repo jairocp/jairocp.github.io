@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+
+
+
+    <div class="container" id="meetup">
+      <div class="row justify-content-md-center">
+
+        <div class="col-12 col-md-auto">
+      <h3>{{ saludojs }}</h3>
+        </div>
+
+
+
+      </div>
+
+      <div class="row justify-content-md-center">
+        <div class="col-12 col-md-auto">
+          <ul>
+            <li v-for="p in personas"> <a :href="p.perfil">{{p.nombre}}</a> -  {{p.apellido}} - {{p.desarrollador}}</li>
+          </ul>
+        </div>
+  </div>
+
+  <div class="row justify-content-md-center">
+
+    <div class="col-12 col-md-auto">
+  <h3>Añadir Persona</h3>
+
+
+    </div>
+</div>
+
+
+
+  <div class="row justify-content-md-center">
+    
+    <div class="col-12 col-md-auto">
+
+      <input type="text" name="" value="" placeholder="Nombre" v-model="nombre">
+      <input type="text" name="" value="" placeholder="apellido" v-model="apellido">
+      <input type="text" name="" value="" placeholder="Perfil" v-model="perfil">
+      <input type="checkbox" name="" value="" v-model="desarrollador">
+      <button type="button" name="button" v-on:click="addperson(nombre,apellido,perfil,desarrollador)">añadir</button>
+
+    </div>
+</div>
+
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+    <script type="text/javascript">
+
+var vue= new Vue({
+  el:'#meetup',
+  data:{
+    saludojs:'Hola a todos',
+    personas: [{nombre:'jairo',apellido:'castañeda',desarrollador:true, perfil:'/jairo'},
+              {nombre:'daniel',apellido:'diaz',desarrollador:true, perfil:'/daniel'},
+              {nombre:'jose',apellido:'rodrigues',desarrollador:false, perfil:'/jose'},
+              {nombre:'andres',apellido:'diaz',desarrollador:false, perfil:'/andres'}],
+  persona:{}
+
+
+  },
+  methods:{
+    addperson:function(nombre,apellido,perfil,desarrollador) {
+      persona={nombre:nombre,apellido:apellido,perfil:perfil,desarrollador:desarrollador}
+      this.personas.push(persona)
+
+    }
+  }
+
+
+
+})
+
+    </script>
+  </body>
+</html>
